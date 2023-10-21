@@ -1,13 +1,15 @@
+/* Reset styles for some HTML elements */
 body, h1, h2, p, ul, li {
     margin: 0;
     padding: 0;
 }
 
-/* Apply a futuristic style to the body */
+/* Apply a unique and animated style to the body */
 body {
-    background-color: #0d0d0d;
+    background-color: #080808;
     color: #ffffff;
     font-family: Arial, sans-serif;
+    overflow: hidden;
 }
 
 /* Style the header with navigation links */
@@ -30,6 +32,11 @@ nav a {
     color: #ffffff;
     text-decoration: none;
     font-size: 18px;
+    transition: color 0.3s;
+}
+
+nav a:hover {
+    color: #0070f3;
 }
 
 /* Style the hero section */
@@ -38,25 +45,98 @@ nav a {
     background-size: cover;
     text-align: center;
     padding: 150px 0;
+    animation: fadeIn 2s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
 }
 
 .hero h1 {
-    font-size: 36px;
+    font-size: 48px;
     margin-bottom: 20px;
+    color: #ffffff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    animation: slideUp 1.5s ease;
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateY(40px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
 }
 
 .hero p {
     font-size: 20px;
     margin-bottom: 40px;
+    color: #cccccc;
+    animation: fadeIn 2s 0.5s ease;
 }
 
 .cta-button {
     background-color: #0070f3;
     color: #ffffff;
-    padding: 10px 20px;
+    padding: 20px 40px; /* Larger button size */
     text-decoration: none;
-    border-radius: 5px;
+    border-radius: 10px; /* Rounded corners */
     font-size: 18px;
+    transition: background-color 0.3s;
+}
+
+.cta-button:hover {
+    background-color: #0057b4;
+}
+
+/* Style the project overviews section */
+.project-overviews {
+    display: flex;
+    justify-content: space-around;
+    background-color: #080808;
+    padding: 40px 0;
+    text-align: center;
+}
+
+.project-overview {
+    width: 300px;
+    padding: 20px;
+    background-color: #333;
+    border-radius: 10px;
+    color: #fff;
+    text-align: center;
+    transition: transform 0.2s, background-color 0.2s;
+}
+
+.project-overview:hover {
+    transform: scale(1.05);
+    background-color: #0070f3;
+}
+
+.project-overview h3 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: #fff;
+}
+
+.project-overview p {
+    font-size: 16px;
+    color: #ffffff;
+}
+
+/* Style the images in the project overviews */
+.project-overview img {
+    width: 100%;
+    max-height: 200px;
+    object-fit: cover;
 }
 
 /* Style the footer */
@@ -64,5 +144,4 @@ footer {
     background-color: #333;
     text-align: center;
     padding: 10px;
-    margin-top: 760px;
 }
