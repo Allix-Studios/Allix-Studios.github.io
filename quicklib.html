@@ -3,17 +3,92 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quicklib</title>
+    <title>App Downloads</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+        }
+
+        h1 {
+            margin: 20px 0;
+        }
+
+        select, button {
+            display: block;
+            margin: 10px auto;
+            padding: 10px;
+            font-size: 16px;
+            background-color: #555;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        select {
+            width: calc(100% - 20px);
+        }
+
+        button:hover {
+            background-color: #4CAF50;
+        }
+
+        #downloadButtons {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .os-button {
+            margin: 5px;
+        }
+    </style>
 </head>
 <body>
 
-    <h1>Quicklib</h1>
+    <h1>App Downloads</h1>
 
-    <h2>Bonencrypt</h2>
-    <p><a href="https://github.com/Allix-Studios/BonEncryptor/releases/download/Full-v1/BON.ENCRYPTER.AppImage" download>.AppImage</a></p>
-    <p><a href="https://github.com/Allix-Studios/BonEncryptor/releases/download/Full-v1/BON.ENCRYPT.exe" download>.exe</a></p>
+    <label for="appSelect">Select an App:</label>
+    <select id="appSelect">
+        <option value="bonencrypt">Bonencrypt</option>
+        <!-- Add more app options as needed -->
+    </select>
 
-    
+    <div id="downloadButtons"></div>
+
+    <script>
+        // JavaScript to handle download button updates based on the selected app
+        document.getElementById('appSelect').addEventListener('change', function () {
+            var selectedApp = this.value;
+            var downloadButtonsContainer = document.getElementById('downloadButtons');
+
+            // Clear existing download buttons
+            downloadButtonsContainer.innerHTML = '';
+
+            // Add download buttons based on the selected app
+            if (selectedApp === 'bonencrypt') {
+                addDownloadButton('Windows', 'https://example.com/bonencrypt-windows.exe');
+                addDownloadButton('Linux (Debian)', 'https://example.com/bonencrypt-linux.deb');
+                addDownloadButton('Linux (RPM)', 'https://example.com/bonencrypt-linux.rpm');
+            }
+            // Add more app cases as needed
+        });
+
+        function addDownloadButton(os, downloadLink) {
+            var button = document.createElement('button');
+            button.textContent = 'Download for ' + os;
+            button.className = 'os-button';
+            button.onclick = function () {
+                window.location.href = downloadLink;
+            };
+            document.getElementById('downloadButtons').appendChild(button);
+        }
+    </script>
 
 </body>
 </html>
