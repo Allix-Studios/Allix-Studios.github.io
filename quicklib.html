@@ -3,90 +3,175 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>App Downloads</title>
+    <title>Program Information</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #333;
+            display: flex;
+            height: 100vh;
+            background-color: #141414;
             color: #fff;
-            text-align: center;
         }
 
-        h1 {
-            margin: 20px 0;
+        #sidebar {
+            width: 200px;
+            background-color: #1e1e1e;
+            color: #fff;
+            padding: 20px;
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
-        select, button {
+        .project-box {
+            background-color: #333;
+            border-radius: 5px;
+            padding: 10px;
+            margin-bottom: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .project-box:hover {
+            background-color: #4CAF50;
+        }
+
+        #content {
+            flex: 1;
+            padding: 20px;
+        }
+
+        h2 {
+            color: #4CAF50;
+            margin-bottom: 20px;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            margin-bottom: 10px;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+
+        li:hover {
+            color: #4CAF50;
+        }
+
+        #programInfo {
+            margin-top: 20px;
+        }
+
+        #pictures {
+            margin-top: 20px;
+        }
+
+        #downloads {
+            margin-top: 20px;
+        }
+
+        #sources {
+            margin-top: 20px;
+        }
+
+        #downloadButtons {
+            margin-top: 20px;
+        }
+
+        button {
             display: block;
-            margin: 10px auto;
+            margin: 10px 0;
             padding: 10px;
             font-size: 16px;
-            background-color: #555;
+            background-color: #4CAF50;
             color: #fff;
             border: none;
             border-radius: 5px;
             cursor: pointer;
-        }
-
-        select {
-            width: calc(100% - 20px);
+            transition: background-color 0.3s;
         }
 
         button:hover {
-            background-color: #4CAF50;
-        }
-
-        #downloadButtons {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
-        .os-button {
-            margin: 5px;
+            background-color: #45a049;
         }
     </style>
 </head>
 <body>
 
-    <h1>App Downloads</h1>
+    <div id="sidebar">
+        <h2>Projects</h2>
+        <div class="project-box" onclick="showProgramInfo('program1')">Minecraft</div>
+        <div class="project-box" onclick="showProgramInfo('program2')">Program 2</div>
+        <!-- Add more project boxes as needed -->
+    </div>
 
-    <label for="appSelect">Select an App:</label>
-    <select id="appSelect">
-        <option value="bonencrypt">Bonencrypt</option>
-        <!-- Add more app options as needed -->
-    </select>
+    <div id="content">
+        <div id="programInfo">
+            <h2>Program Information</h2>
+            <p id="programDescription">Select a program to view information.</p>
+        </div>
 
-    <div id="downloadButtons"></div>
+        <div id="pictures">
+            <h2>Pictures</h2>
+            <!-- Add your picture elements here -->
+            <img src="path/to/picture1.jpg" alt="Picture 1">
+            <img src="path/to/picture2.jpg" alt="Picture 2">
+        </div>
+
+        <div id="downloads">
+            <h2>Downloads</h2>
+            <div id="downloadButtons">
+                <button id="windowsDownload" style="display: none;">Download for Windows</button>
+                <button id="linuxDownload" style="display: none;">Download for Linux</button>
+            </div>
+        </div>
+
+        <div id="sources">
+            <h2>Sources</h2>
+            <!-- Add your source links here -->
+            <ul>
+                <li><a href="https://example.com/source1" target="_blank">Source 1</a></li>
+                <li><a href="https://example.com/source2" target="_blank">Source 2</a></li>
+            </ul>
+        </div>
+    </div>
 
     <script>
-        // JavaScript to handle download button updates based on the selected app
-        document.getElementById('appSelect').addEventListener('change', function () {
-            var selectedApp = this.value;
-            var downloadButtonsContainer = document.getElementById('downloadButtons');
+        function showProgramInfo(program) {
+            // Replace the following with actual information for each program
+            var programDescription;
+            var windowsDownloadLink;
+            var linuxDownloadLink;
 
-            // Clear existing download buttons
-            downloadButtonsContainer.innerHTML = '';
-
-            // Add download buttons based on the selected app
-            if (selectedApp === 'bonencrypt') {
-                addDownloadButton('Windows', 'https://example.com/bonencrypt-windows.exe');
-                addDownloadButton('Linux (Debian)', 'https://example.com/bonencrypt-linux.deb');
-                addDownloadButton('Linux (RPM)', 'https://example.com/bonencrypt-linux.rpm');
+            // Populate information based on the selected program
+            if (program === 'program1') {
+                programDescription = 'Program 1 is a powerful tool for...';
+                windowsDownloadLink = 'https://example.com/program1-windows.exe';
+                linuxDownloadLink = 'https://example.com/program1-linux.deb';
+            } else if (program === 'program2') {
+                programDescription = 'Program 2 is a versatile application for...';
+                windowsDownloadLink = 'https://example.com/program2-windows.exe';
+                linuxDownloadLink = 'https://example.com/program2-linux.deb';
             }
-            // Add more app cases as needed
-        });
 
-        function addDownloadButton(os, downloadLink) {
-            var button = document.createElement('button');
-            button.textContent = 'Download for ' + os;
-            button.className = 'os-button';
-            button.onclick = function () {
-                window.location.href = downloadLink;
+            // Display program information
+            document.getElementById('programDescription').textContent = programDescription;
+
+            // Display download buttons with corresponding links
+            document.getElementById('windowsDownload').style.display = 'block';
+            document.getElementById('linuxDownload').style.display = 'block';
+            document.getElementById('windowsDownload').onclick = function () {
+                window.location.href = windowsDownloadLink;
             };
-            document.getElementById('downloadButtons').appendChild(button);
+            document.getElementById('linuxDownload').onclick = function () {
+                window.location.href = linuxDownloadLink;
+            };
         }
     </script>
 
