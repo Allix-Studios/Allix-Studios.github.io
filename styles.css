@@ -93,7 +93,7 @@ button#donate-btn:hover {
 
 .footer {
     text-align: center;
-    padding: 20px;
+    padding: 0;
     position: absolute;
     bottom: 0;
     width: 100%;
