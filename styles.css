@@ -1,148 +1,101 @@
-/* Reset styles for some HTML elements */
-body, h1, h2, p, ul, li {
+/*
+ * Copyright (c) 2024 Virtcom https://github.com/Virtcom
+ * All Rights Reserved
+ * Project: Virtcom.github.io
+ * File: styles.css
+ * 
+ * Author: Konrad Schellenberger
+ * Created: 8 05 2024
+ * Modified: 08 05 2024
+ * Modified By: Konrad Schellenberger
+ */
+
+body {
     margin: 0;
     padding: 0;
-}
-
-/* Apply a unique and animated style to the body */
-body {
-    background-color: #080808;
-    color: #ffffff;
     font-family: Arial, sans-serif;
-    overflow: hidden;
-}
-
-/* Style the header with navigation links */
-header {
-    background-color: #333;
-    padding: 10px 0;
-    text-align: center;
-}
-
-nav ul {
-    list-style: none;
-}
-
-nav li {
-    display: inline;
-    margin: 0 20px;
-}
-
-nav a {
-    color: #ffffff;
-    text-decoration: none;
-    font-size: 18px;
-    transition: color 0.3s;
-}
-
-nav a:hover {
-    color: #0070f3;
-}
-
-/* Style the hero section */
-.hero {
-    background-image: url('your-background-image.jpg');
-    background-size: cover;
-    text-align: center;
-    padding: 150px 0;
-    animation: fadeIn 2s ease;
-}
-
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
-}
-
-.hero h1 {
-    font-size: 48px;
-    margin-bottom: 20px;
-    color: #ffffff;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
-    animation: slideUp 1.5s ease;
-}
-
-@keyframes slideUp {
-    from {
-        transform: translateY(40px);
-        opacity: 0;
-    }
-    to {
-        transform: translateY(0);
-        opacity: 1;
-    }
-}
-
-.hero p {
-    font-size: 20px;
-    margin-bottom: 40px;
-    color: #cccccc;
-    animation: fadeIn 2s 0.5s ease;
-}
-
-.cta-button {
-    background-color: #0070f3;
-    color: #ffffff;
-    padding: 20px 40px; /* Larger button size */
-    text-decoration: none;
-    border-radius: 10px; /* Rounded corners */
-    font-size: 18px;
-    transition: background-color 0.3s;
-}
-
-.cta-button:hover {
-    background-color: #0057b4;
-}
-
-/* Style the project overviews section */
-.project-overviews {
-    display: flex;
-    justify-content: space-around;
-    background-color: #080808;
-    padding: 40px 0;
-    text-align: center;
-}
-
-.project-overview {
-    width: 300px;
-    padding: 20px;
-    background-color: #333;
-    border-radius: 10px;
+    background-color: #1e1e1e;
     color: #fff;
-    text-align: center;
-    transition: transform 0.2s, background-color 0.2s;
+    min-height: 100vh; /* Ensure the body covers the entire viewport height */
+    position: relative;
 }
 
-.project-overview:hover {
-    transform: scale(1.05);
-    background-color: #0070f3;
-}
-
-.project-overview h3 {
-    font-size: 24px;
-    margin-bottom: 10px;
-    color: #fff;
-}
-
-.project-overview p {
-    font-size: 16px;
-    color: #ffffff;
-}
-
-/* Style the images in the project overviews */
-.project-overview img {
+/* Particle System */
+#particles-js {
+    position: fixed;
     width: 100%;
-    max-height: 200px;
-    object-fit: cover;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: -1;
 }
 
-/* Style the footer */
-footer {
+.header {
+    background-color: #1e1e1e;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid #ff69b4;
+}
+
+.header h1 {
+    font-size: 24px;
+}
+
+.navigation ul {
+    list-style-type: none;
+    display: flex;
+}
+
+.navigation ul li {
+    margin-right: 20px;
+}
+
+.navigation ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+button#donate-btn {
+    background-color: transparent;
+    color: #ff69b4;
+    border: 2px solid #ff69b4;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+button#donate-btn:hover {
+    background-color: #ff69b4;
+    color: #fff;
+}
+
+.projects {
+    padding: 50px 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.project {
+    width: calc(50% - 10px);
+    margin-bottom: 20px;
     background-color: #333;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.project h2 {
+    margin-bottom: 10px;
+}
+
+.footer {
     text-align: center;
-    padding: 10px;
-    margin-top: 350px ;
+    padding: 20px;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    z-index: 1; /* Ensure the footer appears above the particles */
 }
